@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Page One</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-fab right bottom>
+    <button ion-fab color="danger"><ion-icon name="arrow-dropleft"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+    </ion-fab-list>
+</ion-fab>
+
+    <ion-card *ngFor="let item of movies" (click)="openMenu()">
+      <ion-item>
+    <ion-avatar item-left>
+      <img src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}">
+    </ion-avatar>
+    <h2>{{item.original_title}}</h2>
+    <p>{{item.release_date}}</p>
+  </ion-item>
+
+  <img src="https://image.tmdb.org/t/p/w500/{{item.backdrop_path}}">
+
+  <ion-card-content>
+    <p>{{item.overview}}</p>
+  </ion-card-content>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>{{item.vote_count}} Likes</div>
+      </button>
+    </ion-col>
+  </ion-row>
+    </ion-card>
+</ion-content>
